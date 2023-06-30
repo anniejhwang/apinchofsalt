@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+Recipe.create(title: "Banana Bread", ingredients: "Bananas,Flour, Egg, Sugar, Salt, Baking Soda", prep_time: "10 mins", cook_time: "60 mins", total_time: "70 mins", instructions: "mix everything together and put it in the oven at 350°F")
+
+Recipe.create(title: "Tates Chocolate Chip Cookies", ingredients: "Butter, Sugar, Brown Sugar, Eggs, Vanilla Extract, Salt, Baking Soda, Flour, Chocolate Chips", prep_time: "10 mins", cook_time: "12 mins", total_time: "26 mins", instructions: "mix it all together and put it in the oven at 350°F")
