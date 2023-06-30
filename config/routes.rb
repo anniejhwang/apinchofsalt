@@ -11,5 +11,8 @@ Rails.application.routes.draw do
   patch "/cuisines/:id" => "cuisines#update"
   delete "/cuisines/:id" => "cuisines#destroy"
 
+  #signup
   post "/users" => "users#create"
+  #login
+  post "/sessions" => "sessions#create"
 end
