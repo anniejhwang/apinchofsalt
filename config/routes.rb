@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   delete "/recipes/:id" => "recipes#destroy"
 
   get "/cuisines" => "cuisines#index"
+  post "/cuisines" => "cuisines#create"
 end
