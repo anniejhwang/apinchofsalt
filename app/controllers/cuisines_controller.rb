@@ -10,4 +10,9 @@ class CuisinesController < ApplicationController
     )
     render :show
   end
+
+  def show
+    @cuisine = Cuisine.find_by(id: params[:id])
+    render :show
+  end
 end
