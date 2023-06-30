@@ -37,4 +37,10 @@ class RecipesControllerTest < ActionDispatch::IntegrationTest
     assert_equal "Updated total_time", data["total_time"]
     assert_equal "Updated instructions", data["instructions"]
   end
+  test "destroy" do
+    assert_difference "Recipe.count", -1 do
+      delete "/recipes/#{Recipe.first.id}.json"
+      assert_response 200
+    end
+  end
 end
