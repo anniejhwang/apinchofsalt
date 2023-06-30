@@ -7,6 +7,8 @@ class CuisinesController < ApplicationController
   def create
     @cuisine = Cuisine.create(
       title: params[:title],
+      image: params[:image],
+
     )
     render :show
   end
@@ -20,6 +22,7 @@ class CuisinesController < ApplicationController
     @cuisine = Cuisine.find_by(id: params[:id])
     @cuisine.update(
       title: params[:title] || @cuisine.title,
+      image: params[:image] || @cuisine.image,
     )
     render :show
   end
