@@ -12,6 +12,7 @@ class RecipesController < ApplicationController
       cook_time: params[:cook_time],
       total_time: params[:total_time],
       instructions: params[:instructions],
+      image: params[:image],
     )
     render :show
   end
@@ -30,6 +31,7 @@ class RecipesController < ApplicationController
       cook_time: params[:cook_time] || @recipe.cook_time,
       total_time: params[:total_time] || @recipe.total_time,
       instructions: params[:instructions] || @recipe.instructions,
+      image: params[:image] || @recipe.image,
     )
     render :show
   end
