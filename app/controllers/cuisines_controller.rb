@@ -15,4 +15,12 @@ class CuisinesController < ApplicationController
     @cuisine = Cuisine.find_by(id: params[:id])
     render :show
   end
+
+  def update
+    @cuisine = Cuisine.find_by(id: params[:id])
+    @cuisine.update(
+      title: params[:title] || @cuisine.title,
+    )
+    render :show
+  end
 end

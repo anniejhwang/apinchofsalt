@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get "/cuisines" => "cuisines#index"
   post "/cuisines" => "cuisines#create"
   get "/cuisines/:id" => "cuisines#show"
+  patch "/cuisines/:id" => "cuisines#update"
 end
