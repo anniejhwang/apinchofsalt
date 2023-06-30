@@ -23,4 +23,10 @@ class CuisinesController < ApplicationController
     )
     render :show
   end
+
+  def destroy
+    @cuisine = Cuisine.find_by(id: params[:id])
+    @cuisine.destroy
+    render json: { message: "Cuisine destroyed successfully" }
+  end
 end
