@@ -7,6 +7,7 @@ one:
   cook_time: MyString
   total_time: MyString
   instructions: MyString
+  image: MyString
 
 two:
   title: MyString
@@ -15,3 +16,4 @@ two:
   cook_time: MyString
   total_time: MyString
   instructions: MyString
+  image: Mystring

@@ -13,7 +13,7 @@ class RecipesController < ApplicationController
       total_time: params[:total_time],
       instructions: params[:instructions],
       image: params[:image],
-      user_id: params[:user_id],
+      user_id: current_user.id,
     )
     render :show
   end
@@ -33,7 +33,6 @@ class RecipesController < ApplicationController
       total_time: params[:total_time] || @recipe.total_time,
       instructions: params[:instructions] || @recipe.instructions,
       image: params[:image] || @recipe.image,
-      user_id: params[:user_id] || @recipe.user_id,
     )
     render :show
   end

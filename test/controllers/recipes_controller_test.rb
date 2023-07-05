@@ -11,7 +11,12 @@ class RecipesControllerTest < ActionDispatch::IntegrationTest
 
   test "create" do
     assert_difference "Recipe.count", 1 do
-      post "/recipes.json", params: { title: "Americano", ingredients: "espresso, water, ice", prep_time: "1 min", cook_time: "2 mins", total_time: "3 mins", instructions: "Make an espresso and mix everything together with water and ice", image: "https://images.ctfassets.net/v601h1fyjgba/1vlXSpBbgUo9yLzh71tnOT/a1afdbe54a383d064576b5e628035f04/Iced_Americano.jpg", user_id: 1 }
+      post "/users.json", params: { name: "Test", email: "test@test.com", password: "password", password_confirmation: "password" }
+      post "/sessions.json", params: { email: "test@test.com", password: "password" }
+      data = JSON.parse(response.body)
+      token = data["jwt"]
+
+      post "/recipes.json", params: { title: "Americano", ingredients: "coffee", prep_time: "1 min", cook_time: "2 mins", total_time: "3 mins", instructions: "Mix", image: "test.jpg", user_id: 1 }, headers: { Authorization: "Bearer #{token}" }
       assert_response 200
     end
   end
@@ -37,7 +42,6 @@ class RecipesControllerTest < ActionDispatch::IntegrationTest
     assert_equal recipe.total_time, data["total_time"]
     assert_equal recipe.instructions, data["instructions"]
     assert_equal recipe.image, data["image"]
-    assert_equal recipe.user_id, data["user_id"]
   end
   test "destroy" do
     assert_difference "Recipe.count", -1 do
