@@ -8,3 +8,4 @@ json.instructions recipe.instructions
 json.created_at recipe.created_at
 json.updated_at recipe.updated_at
 json.image recipe.image
+json.user_id recipe.user_id

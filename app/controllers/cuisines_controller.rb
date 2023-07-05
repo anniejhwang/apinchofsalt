@@ -8,7 +8,6 @@ class CuisinesController < ApplicationController
     @cuisine = Cuisine.create(
       title: params[:title],
       image: params[:image],
-
     )
     render :show
   end
