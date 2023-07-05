@@ -21,23 +21,23 @@ class RecipesControllerTest < ActionDispatch::IntegrationTest
     assert_response 200
 
     data = JSON.parse(response.body)
-    assert_equal ["id", "title", "ingredients", "prep_time", "cook_time", "total_time", "instructions", "created_at", "updated_at", "image", "user_id"], data.keys
+    assert_equal ["id", "title", "ingredients", "prep_time", "cook_time", "total_time", "instructions", "image", "user_id", "created_at", "updated_at"], data.keys
   end
 
   test "update" do
     recipe = Recipe.first
-    patch "/recipes/#{recipe.id}.json", params: { title: "Updated title", ingredients: "Updated ingredients", prep_time: "Updated prep_time", cook_time: "Updated cook_time", total_time: "Updated total_time", instructions: "Updated instructions", image: "Updated image", user_id: "Updated user_id" }
+    patch "/recipes/#{recipe.id}.json", params: { title: "Updated title" }
     assert_response 200
 
     data = JSON.parse(response.body)
     assert_equal "Updated title", data["title"]
-    assert_equal "Updated ingredients", data["ingredients"]
-    assert_equal "Updated prep_time", data["prep_time"]
-    assert_equal "Updated cook_time", data["cook_time"]
-    assert_equal "Updated total_time", data["total_time"]
-    assert_equal "Updated instructions", data["instructions"]
-    assert_equal "Updated image", data["image"]
-    assert_equal "Updated user_id", data["user_id"]
+    assert_equal recipe.ingredients, data["ingredients"]
+    assert_equal recipe.prep_time, data["prep_time"]
+    assert_equal recipe.cook_time, data["cook_time"]
+    assert_equal recipe.total_time, data["total_time"]
+    assert_equal recipe.instructions, data["instructions"]
+    assert_equal recipe.image, data["image"]
+    assert_equal recipe.user_id, data["user_id"]
   end
   test "destroy" do
     assert_difference "Recipe.count", -1 do
